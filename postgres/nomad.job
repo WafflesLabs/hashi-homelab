@@ -1,6 +1,5 @@
 job "postgres" {
-  region = "[[ .region ]]"
-  datacenters = ["[[ .datacenter ]]"]
+  datacenters = ["dc1"]
   type        = "service"
 
   meta {
@@ -31,7 +30,7 @@ job "postgres" {
       service {
         name = "${NOMAD_JOB_NAME}"
         tags = ["postgres"]
-
+        provider = "nomad"
         port = "db"
 
         check {
